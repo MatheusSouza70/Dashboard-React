@@ -17,7 +17,7 @@ export class ChartSection extends Component {
                     }, title: {
                         text: "Valor de Mercado (BRL)",
                         style: {
-                            fontSize: '14px', fontWeight: 'bold', color: "#fcdf03"
+                            fontSize: '14px', fontWeight: 'bold', color: "#4169e1"
                         }
                     }, stroke: {
                         curve: 'smooth'
@@ -27,7 +27,7 @@ export class ChartSection extends Component {
                         enabled: false
                     }, yaxis: {
                         show: false
-                    }, colors: ["#fcdf03"],
+                    }, colors: ["#87ceeb"],
                     tooltip: {
                         y: {
                             formatter: (value) => { return value.toFixed(2) }
@@ -42,14 +42,14 @@ export class ChartSection extends Component {
                     }
                 ]
             }
-            ,Market_Cap: {
+            , Market_Cap: {
                 options: {
                     grid: {
                         show: false
                     }, title: {
                         text: "Valor de Mercado (BRL)",
                         style: {
-                            fontSize: '14px', fontWeight: 'bold', color: '#ff69f5'
+                            fontSize: '14px', fontWeight: 'bold', color: '#4169e1'
                         }
                     }, stroke: {
                         curve: 'smooth'
@@ -59,7 +59,7 @@ export class ChartSection extends Component {
                         enabled: false
                     }, yaxis: {
                         show: false
-                    }, colors: ["#ff69f5"],
+                    }, colors: ["#00bfff"],
                     tooltip: {
                         y: {
                             formatter: (value) => { return value.toFixed(2) }
@@ -82,7 +82,7 @@ export class ChartSection extends Component {
                     }, title: {
                         text: "Volume de Mercado",
                         style: {
-                            fontSize: '14px', fontWeight: 'bold', color: "#00ffea"
+                            fontSize: '14px', fontWeight: 'bold', color: "#4169e1"
                         }
                     }, stroke: {
                         curve: 'smooth'
@@ -97,7 +97,7 @@ export class ChartSection extends Component {
                         y: {
                             formatter: (value) => { return value.toFixed(2) }
                         }, theme: "dark"
-                    }, 
+                    },
                 },
                 series: [
                     {
@@ -107,7 +107,7 @@ export class ChartSection extends Component {
                     }
                 ]
             }
-            
+
         };
         this.prevSelection = this.state.Price.options.selection
     }
@@ -129,14 +129,14 @@ export class ChartSection extends Component {
     }
     componentWillUnmount() {
         clearInterval(this.interval);
-      }
+    }
     componentDidUpdate() {
         if (this.prevId !== this.props.Id) {
             this.prevId = this.props.Id
             this.fetchData()
         }
         if (this.prevSelection !== this.state.Price.options.selection) {
-            this.prevSelection =this.state.Price.options.selection
+            this.prevSelection = this.state.Price.options.selection
             this.fetchData()
         }
     }
@@ -144,39 +144,39 @@ export class ChartSection extends Component {
     render() {
         return (
             <div>
-               <div className="container">
+                <div className="container">
                     <div className="row">
                         <div className="col" style={{ maxWidth: '610px' }}>
                             <div id="chart">
                                 <div className="toolbar">
                                     <button id="one_month"
 
-                                        onClick={() => this.setState({ Price: { options:{...this.tooltip,selection: 1},series: this.state.Price.series }})}>
+                                        onClick={() => this.setState({ Price: { options: { ...this.tooltip, selection: 1 }, series: this.state.Price.series } })}>
                                         1 Dia
                                     </button>
                                     &nbsp;
                                     <button id="six_months"
 
-                                        onClick={() => this.setState({ Price: { options:{...this.tooltip,selection: 7},series: this.state.Price.series }})}>
+                                        onClick={() => this.setState({ Price: { options: { ...this.tooltip, selection: 7 }, series: this.state.Price.series } })}>
                                         1 Semana
                                     </button>
                                     &nbsp;
                                     <button id="one_year"
 
 
-                                        onClick={() => this.setState({ Price: { options:{...this.tooltip,selection: 30},series: this.state.Price.series }})}>
+                                        onClick={() => this.setState({ Price: { options: { ...this.tooltip, selection: 30 }, series: this.state.Price.series } })}>
                                         1 Mês
                                     </button>
                                     &nbsp;
                                     <button id="ytd"
 
-                                        onClick={() => this.setState({ Price: { options:{...this.tooltip,selection: 182},series: this.state.Price.series }})}>
+                                        onClick={() => this.setState({ Price: { options: { ...this.tooltip, selection: 182 }, series: this.state.Price.series } })}>
                                         6 Meses
                                     </button>
                                     &nbsp;
                                     <button id="all"
 
-                                        onClick={() => this.setState({ Price: { options:{...this.tooltip,selection: 365},series: this.state.Price.series }})}>
+                                        onClick={() => this.setState({ Price: { options: { ...this.tooltip, selection: 365 }, series: this.state.Price.series } })}>
                                         1 Ano
                                     </button>
                                 </div>
@@ -191,7 +191,7 @@ export class ChartSection extends Component {
                         <div className="col" style={{ maxWidth: '200px' }}>
 
                             <div className="card-body ">
-                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 0)'  }}> Valor de Mercado </h6>
+                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: '#4169e1' }}> Valor de Mercado </h6>
                                 <p className="card-text fw-bold "
                                     style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 255)', fontSize: 'small' }}>
                                     R$ {this.props.MarketCap}
@@ -199,36 +199,27 @@ export class ChartSection extends Component {
                             </div>
 
                             <div className="card-body ">
-                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 0)'  }}> Mudança de Preço (24hrs) </h6>
+                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: '#4169e1' }}> Mudança de Preço (24hrs) </h6>
                                 <p className="card-text fw-bold "
                                     style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 255)', fontSize: 'small' }}>
                                     R$ {this.props.priceChange24}
                                 </p>
                             </div>
                             <div className="card-body ">
-                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 0)' }}> Volume Total  </h6>
+                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: '#4169e1' }}> Volume Total  </h6>
                                 <p className="card-text fw-bold "
                                     style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 255)', fontSize: 'small' }}>
                                     R$ {this.props.TotVol}
                                 </p>
                             </div>
                             <div className="card-body ">
-                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 0)'  }}> Fornecimento Circulante </h6>
+                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: '#4169e1' }}> Fornecimento Circulante </h6>
                                 <p className="card-text fw-bold "
                                     style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 255)', fontSize: 'small' }}>
                                     {this.props.Circulating}
                                 </p>
                             </div>
-                            <div className="card-body ">
-                                <h6 className="card-title" style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 0)'  }}> Twitter Followers</h6>
-                                <p className="card-text fw-bold "
-                                    style={{ fontFamily: 'NHaasGroteskDSPro-65Md', color: 'rgb(255, 255, 255)', fontSize: 'small' }}>
-                                    {this.props.twitterF}
-                                </p>
-                            </div>
-
-
-
+                            
 
                         </div>
                         <div className="col" style={{ maxWidth: '310px' }}>
